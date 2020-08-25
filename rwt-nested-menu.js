@@ -218,6 +218,7 @@ export default class RwtNestedMenu extends HTMLElement {
 	setupGroupListeners() {
 		var grpElements = this.shadowRoot.querySelectorAll('.group');
 		for (var i = 0; i < grpElements.length; i++) {
+			grpElements[i].setAttribute('href', 'javascript:	;');
 			grpElements[i].addEventListener('click', this.onClickGroup.bind(this));
 		}
 	}

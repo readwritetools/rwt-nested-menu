@@ -25,23 +25,30 @@
 	--red: #ff3d3d;
 		
 	/* custom element decorations */
-	--background: var(--nav-black);
-	--level1-color: var(--title-blue);
-	--level2-color: var(--pure-white);
-	--accent-color: var(--yellow);
-	--accent-background: var(--pure-black);
+	--color: var(--pure-white);
+	--accent-color1: var(--title-blue);
+	--accent-color2: var(--yellow);
+	
+	--menu-background: var(--medium-black);
+	--group-background: var(--medium-black);
+	--item-background: var(--black);
+	--hover-background: var(--form-gray);
+	--active-background: var(--pure-black);
+
+	--thick-border: var(--pure-black);
+	--thin-border: var(--light-black);
+	--item-border: var(--white);
 
 	/* custom element variables */	
-	/*
-	--width: 15.5rem;
-	--top: 0;
-	--bottom: 0;
-	*/
+	--menu-top: 0;
+	--font-size: 0.8rem;
+	--item-height: 2rem;
+	--item-width: 11rem;
 }
 
 menu {
 	position: fixed;
-    top: var(--banner-height-plus-borders);
+    top: var(--menu-top);
     width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -52,10 +59,10 @@ menu {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
-	background-color: var(--medium-black);
+	background-color: var(--menu-background);
 	box-sizing: border-box;
-	border-top: 1px solid #cccc77;	
-	border-bottom: 1px solid #cccc77;	
+	border-top: 1px solid var(--accent-color2);
+	border-bottom: 1px solid var(--accent-color2);
 }
 menu.show-menu {
 	display: flex;
@@ -65,59 +72,58 @@ menu.hide-menu {
 }
 menu a {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 0.8rem;
+	font-size: var(--font-size);
 	display: block;
 	flex-shrink: 0;
 	flex-grow: 0;
-	height: 2rem;
-	width: 11rem;
-	color: var(--pure-white);
-	background-color: var(--medium-black);
+	height: var(--item-height);
+	width: var(--item-width);
+	color: var(--color);
+	background-color: var(--group-background);
 	text-align: center;
-	line-height: 0;
-	padding: 1rem 0rem;
 	break-inside: avoid;
 	box-sizing: border-box;
 	text-decoration: none;
+	padding: calc((var(--item-height) - var(--font-size))/2) 0 0 0;
 }
 menu a:focus {
 	font-weight: bold;
 	outline-offset: -4px;
 }
 menu a:active {
-	border-left: 4px solid var(--title-blue);
-	border-right: 4px solid var(--title-blue);
+	border-left: 4px solid var(--accent-color1);
+	border-right: 4px solid var(--accent-color1);
 }
 menu a:hover {
 	font-weight: bold;
-	background-color: var(--form-gray);
+	background-color: var(--hover-background);
 }
 .group {
 	display: block;
-	border-left: 4px solid var(--pure-black);
-	border-bottom: 1px dotted var(--light-black);
-	border-right: 1px dotted var(--light-black);
+	border-left: 4px solid var(--thick-border);
+	border-bottom: 1px dotted var(--thin-border);
+	border-right: 1px dotted var(--thin-border);
 }
 .activename.item {
-	background-color: var(--pure-black);
-	color: var(--yellow);
+	background-color: var(--active-background);
+	color: var(--accent-color2);
 }
 .activename::before {
 	content: '►\00a0';
-	color: var(--yellow);
+	color: var(--accent-color2);
 }
 .activename::after {
 	content: '\00a0◀';
-	color: var(--yellow);
+	color: var(--accent-color2);
 }
 .open {
-	color: var(--title-blue);
-	border-left: 4px solid var(--title-blue);
+	color: var(--accent-color1);
+	border-left: 4px solid var(--accent-color1);
 }
 .item {
-	background-color: var(--black);
-	border-left: 4px solid var(--white);
-	border-bottom: 1px dotted var(--light-black);
-	border-right: 1px dotted var(--light-black);
+	background-color: var(--item-background);
+	border-left: 4px solid var(--item-border);
+	border-bottom: 1px dotted var(--thin-border);
+	border-right: 1px dotted var(--thin-border);
 	display: none;
 }
