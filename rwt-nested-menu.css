@@ -1,0 +1,123 @@
+/*=============================================================================
+
+  File:         /node_modules/rwt-nested-menu/rwt-nested-menu.css
+  Language:     CSS
+  Copyright:    Read Write Tools © 2020
+  License:      MIT
+  Initial date: Aug 22, 2020
+  Contents:     Nested navigation menu with two entry levels
+
+=============================================================================*/
+
+:host {
+	--pure-black: #000;
+	--nav-black: #111;
+	--light-black: #171717;
+	--medium-black: #222;
+	--black: #333;
+	--dark-gray: #555;
+	--gray: #777;
+	--white: #ccc;
+	--pure-white: #fff;
+	--js-blue: #76afe8;
+	--title-blue: #42affa;
+	--yellow: #ffffa4;
+	--red: #ff3d3d;
+		
+	/* custom element decorations */
+	--background: var(--nav-black);
+	--level1-color: var(--title-blue);
+	--level2-color: var(--pure-white);
+	--accent-color: var(--yellow);
+	--accent-background: var(--pure-black);
+
+	/* custom element variables */	
+	/*
+	--width: 15.5rem;
+	--top: 0;
+	--bottom: 0;
+	*/
+}
+
+menu {
+	position: fixed;
+    top: var(--banner-height-plus-borders);
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: start; /* main-axis */
+	align-content: center; /* cross-axis */
+	max-width: var(--columns-width);
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	background-color: var(--medium-black);
+	box-sizing: border-box;
+	border-top: 1px solid #cccc77;	
+	border-bottom: 1px solid #cccc77;	
+}
+menu.show-menu {
+	display: flex;
+}
+menu.hide-menu {
+	display: none;
+}
+menu a {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.8rem;
+	display: block;
+	flex-shrink: 0;
+	flex-grow: 0;
+	height: 2rem;
+	width: 11rem;
+	color: var(--pure-white);
+	background-color: var(--medium-black);
+	text-align: center;
+	line-height: 0;
+	padding: 1rem 0rem;
+	break-inside: avoid;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+menu a:focus {
+	font-weight: bold;
+	outline-offset: -4px;
+}
+menu a:active {
+	border-left: 4px solid var(--title-blue);
+	border-right: 4px solid var(--title-blue);
+}
+menu a:hover {
+	font-weight: bold;
+	background-color: var(--form-gray);
+}
+.group {
+	display: block;
+	border-left: 4px solid var(--pure-black);
+	border-bottom: 1px dotted var(--light-black);
+	border-right: 1px dotted var(--light-black);
+}
+.activename.item {
+	background-color: var(--pure-black);
+	color: var(--yellow);
+}
+.activename::before {
+	content: '►\00a0';
+	color: var(--yellow);
+}
+.activename::after {
+	content: '\00a0◀';
+	color: var(--yellow);
+}
+.open {
+	color: var(--title-blue);
+	border-left: 4px solid var(--title-blue);
+}
+.item {
+	background-color: var(--black);
+	border-left: 4px solid var(--white);
+	border-bottom: 1px dotted var(--light-black);
+	border-right: 1px dotted var(--light-black);
+	display: none;
+}

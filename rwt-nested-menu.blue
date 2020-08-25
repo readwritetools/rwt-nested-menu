@@ -1,0 +1,33 @@
+!blue 2.0
+//=============================================================================
+//
+//  File:         /node_modules/rwt-nested-menu/rwt-nested-menu.blue
+//  Language:     Blue-phrase
+//  Copyright:    Read Write Tools © 2020
+//  License:      MIT
+//  Initial date: Aug 22, 2020
+//  Contents:     Nested navigation menu with two entry levels
+//
+//=============================================================================
+
+/* Create a sourceref file with the groups and items following this pattern:
+
+!blue 2.0
+
+!option --fragment
+
+a .group `javascript:;` ESCAPES
+a .item `/syntax/escapes/escape.blue` escape
+a .item `/syntax/escapes/unicode.blue` unicode
+
+a .group `javascript:;` NOTES
+a .item `/syntax/notes/comment.blue` comment
+a .item `/syntax/notes/remark.blue` remark
+a .item `/syntax/notes/reply.blue` reply
+a .item `/syntax/notes/placeholder.blue` placeholder
+*/
+
+!option --fragment
+
+menu #quickpicMenu ^style=display:none {
+}

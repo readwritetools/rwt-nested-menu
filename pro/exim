@@ -1,0 +1,23 @@
+!blue 2.0
+//=============================================================================
+//
+// File:         rwt-nested-menu/pro/exim
+// Language:     prorenata script
+// Copyright:    Read Write Tools © 2020
+// License:      MIT License
+// Initial date: Aug 22, 2020
+// Contents:     Convert .blue to .md
+//
+//=============================================================================
+
+template {
+	ghfm		blue compile <source> <dest> --emit=ghfm
+}
+
+// ---------- Convert blue document into Github Flavored readme.md ---------- 
+recurse {
+	source '/palau/srv/hub.readwritetools.com/components/ghfm/nested-menu.blue'
+	dest   '../readme.md' 
+	overwrite always
+	exec ghfm
+}
