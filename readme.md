@@ -127,7 +127,7 @@ it.
          hotkey access.
       * For WAI-ARIA accessibility apply a `role=navigation` attribute.
 ```html
-<rwt-nested-menu id=sitenav sourceref='/menu.html' shortcut=F9 role=navigation></rwt-nested-menu>
+<rwt-nested-menu id=nested-menu sourceref='/menu.html' shortcut=F9 role=navigation></rwt-nested-menu>
 ```
 
 
@@ -262,6 +262,6 @@ MIT License.
 <table>
 	<tr><td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-nested-menu'>github</a></td></tr>
 	<tr><td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-nested-menu'>NPM</a></td></tr>
-	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/sitenav.blue'>Read Write Hub</a></td></tr>
+	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/nested-menu.blue'>Read Write Hub</a></td></tr>
 </table>
 
