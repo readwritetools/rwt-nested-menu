@@ -134,7 +134,7 @@ it.
 #### Menu template
 
 Each intended menu element should be defined (in the file specified in the
-sourceref attribute) as an HTML anchor tag <a>. There are two types of elements,
+sourceref attribute) as an HTML anchor tag. There are two types of elements,
 distinguished by classname: `group` and `item`. *Item* elements should have an `href` attribute
 referencing its target document. *Group* elements should not include an `href` attribute.
 
