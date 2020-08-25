@@ -11,12 +11,12 @@
 
 <figure>
 	<img src='/img/components/nested-menu/iza-gawrych-oL3O2PybLoo-unsplash.jpg' width='100%' />
-	<figcaption>Menus within menues</figcaption>
+	<figcaption>Menus within menus</figcaption>
 </figure>
 
 # Nested Menu
 
-## Accordian-style
+## Multi-column expandable dropdown
 
 
 <address>
@@ -26,7 +26,7 @@
 
 <table>
 	<tr><th>Abstract</th></tr>
-	<tr><td>The <span class=product>rwt-nested-menu</span> web component is an accordian-style dropdown navigation menu with two entry levels.</td></tr>
+	<tr><td>The <span class=product>rwt-nested-menu</span> web component is an expandable dropdown navigation panel, displayed in multi-column fashion, with items grouped into two levels.</td></tr>
 </table>
 
 ### Motivation
@@ -35,24 +35,28 @@ Sometimes you need to provide your website visitors with quick access to a large
 quantity of pages without cluttering the main reading area of the page.
 
 The <span>rwt-nested-menu</span> web component does this by keeping a
-top of the page menu closed until the user needs it. When the menu is activated,
-it pops down displaying several columns of menu items, where the number of
-columns is automatically adjusted to match the space available and the number of
-configured entries. Activation may also be initiated through the component's `toggleMenu`
-method or through its event interface.
+menu collapsed at the top of the page until the user needs it.
+
+When the menu is activated, it opens up as a multi-column panel, where the
+number of columns is automatically adjusted to match the space available and the
+number of configured items.
+
+Activation may also be initiated through the component's `toggleMenu` method or
+through its event interface.
 
 The component has these features:
 
    * First level menu items are shown by default. Second level menu items are shown
       when the user selects a first-level item.
-   * The menu has both a keyboard and mouse interface.
-   * Menu items may be kept separate from the web component, allowing the webmaster
-      to change its contents in a single centralized place. Alternatively, menu items
-      may be slotted directly between the component's opening and closing tags.
-   * The menu item corresponding to the current page is highlighted and scrolled into
-      view when the page is first loaded.
+   * The menu has both a keyboard and mouse interface, with no risk of loosing focus
+      when the mouse leaves the menu area.
+   * The actual menu items are kept separate from the web component, allowing the
+      webmaster to change its contents in a single centralized place.
+   * The menu item corresponding to the current document is highlighted when the
+      collapsed menu is first expanded.
    * The menu has an event interface for showing and hiding itself.
-   * The menu emits a custom event to close sibling menus and dialog boxes.
+   * The menu emits a custom event to close sibling menus and dialog boxes, so that
+      only one is open at a time.
    * A keyboard listener is provided to allow a shortcut key to open/close the menu.
 
 #### Prerequisites
@@ -118,13 +122,10 @@ it.
 
       * For scripting purposes, apply an `id` attribute.
       * Apply a `sourceref` attribute with a reference to an HTML file containing the
-         menu's text and any CSS it needs.
+         intended menu items.
       * Optionally, apply a `shortcut` attribute with something like `F9`, `F10`, etc. for
          hotkey access.
       * For WAI-ARIA accessibility apply a `role=navigation` attribute.
-      * For simple menus, the `sourceref` may be omitted and the menu hyperlinks may be
-         slotted into the web component. Simply place the hyperlinks directly between the
-`<rwt-nested-menu>` and `</rwt-nested-menu>` tags.
 ```html
 <rwt-nested-menu id=sitenav sourceref='/menu.html' shortcut=F9 role=navigation></rwt-nested-menu>
 ```
@@ -132,9 +133,64 @@ it.
 
 #### Menu template
 
+Each intended menu element should be defined (in the file specified in the
+sourceref attribute) as an HTML anchor tag <a>. There are two types of elements,
+distinguished by classname: `group` and `item`. *Item* elements should have an `href` attribute
+referencing its target document. *Group* elements should not include an `href` attribute.
+
+
+All elements are siblings to each other, and there is no explicit hierarchy.
+Rather it is implied that any item element following a group element belongs to
+the preceding group element.
+
+The text for each element will be clipped to fit on one line, so the text should
+be short.
+
+Here is an example, using <span>BLUE</span><span>PHRASE</span> notation, with
+two groups.
+
+```html
+a .group ESCAPES
+a .item `/syntax/escapes/escape.blue` escape
+a .item `/syntax/escapes/unicode.blue` unicode
+
+a .group NOTES
+a .item `/syntax/notes/comment.blue` comment
+a .item `/syntax/notes/remark.blue` remark
+a .item `/syntax/notes/reply.blue` reply
+a .item `/syntax/notes/placeholder.blue` placeholder
+```
+
 #### Self identification
 
+The menu item corresponding to the current page can be highlighted if it
+identifies itself to the menu, so as to provide a frame of reference for the
+user. This is accomplished by adding `meta` tags to the page. So, referring to the
+example, if the current page is `/syntax/escapes/unicode.blue` the meta tags would
+be:
+
+```html
+<meta name=nested-menu:group content='ESCAPES' />
+<meta name=nested-menu:item content='unicode' />
+```
+
 ### Customization
+
+#### Menu items
+
+When expanded, the menu panel is positioned in a fixed location, a certain
+distance from the top of the page. This should be set using the `--menu-top` variable.
+Each element within the menu is sized using the `--item-height` and `--item-width` variables.
+Here is an example:
+
+```css
+rwt-nested-menu {
+    --menu-top: 0;
+    --font-size: 0.8rem;
+    --item-height: 2rem;
+    --item-width: 11rem;
+}
+```
 
 #### Menu color scheme
 
@@ -143,11 +199,19 @@ to override the variables' defaults:
 
 ```css
 rwt-nested-menu {
-    --background: var(--nav-black);
-    --level1-color: var(--title-blue);
-    --level2-color: var(--pure-white);
-    --accent-color: var(--yellow);
-    --accent-background: var(--pure-black);
+    --color: var(--pure-white);
+    --accent-color1: var(--title-blue);
+    --accent-color2: var(--yellow);
+    
+    --menu-background: var(--medium-black);
+    --group-background: var(--medium-black);
+    --item-background: var(--black);
+    --hover-background: var(--form-gray);
+    --active-background: var(--pure-black);
+
+    --thick-border: var(--pure-black);
+    --thin-border: var(--light-black);
+    --item-border: var(--white);
 }
 ```
 
@@ -167,8 +231,8 @@ The menu can be controlled with its event interface.
 
 
 <dl>
-	<dt><code>toggle-nested-menu</code></dt>
-	<dd>The component listens on DOM <code>document</code> for <code>toggle-nested-menu</code> messages. Upon receipt it will show or hide the menu.</dd>
+	<dt><code>toggle-menu</code></dt>
+	<dd>The component listens on DOM <code>document</code> for <code>toggle-menu</code> messages. Upon receipt it will show or hide the menu.</dd>
 	<dt><code>keydown</code></dt>
 	<dd>The component listens on DOM <code>document</code> for <code>keydown</code> messages. If the user presses the configured shortcut key (<kbd>F9</kbd>, <kbd>F10</kbd>, etc) it will show/hide the menu. The <kbd>Esc</kbd> key hides the menu.</dd>
 	<dt><code>collapse-popup</code></dt>
