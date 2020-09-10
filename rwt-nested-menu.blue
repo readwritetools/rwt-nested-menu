@@ -29,5 +29,5 @@ a .item `/syntax/notes/placeholder.blue` placeholder
 
 !option --fragment
 
-menu #quickpicMenu ^style=display:none {
+menu #quickpicMenu {
 }
