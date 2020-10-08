@@ -1,7 +1,7 @@
 {
   "name": "rwt-nested-menu",
   "version": "1.0.6",
-  "description": "Nested navigation menu with two entry levels, a W3C standard Web Component",
+  "description": "Nested navigation menu with two entry levels, a standards-based DOM Component",
   "author": "Read Write Tools",
   "license": "MIT",
   "module": "rwt-nested-menu.js",

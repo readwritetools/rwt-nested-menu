@@ -9,10 +9,13 @@
 
 
 
+
 <figure>
 	<img src='/img/components/nested-menu/iza-gawrych-oL3O2PybLoo-unsplash.jpg' width='100%' />
 	<figcaption>Menus within menus</figcaption>
 </figure>
+
+##### Open Source DOM Component
 
 # Nested Menu
 
@@ -26,7 +29,7 @@
 
 <table>
 	<tr><th>Abstract</th></tr>
-	<tr><td>The <span class=product>rwt-nested-menu</span> web component is an expandable dropdown navigation panel, displayed in multi-column fashion, with items grouped into two levels.</td></tr>
+	<tr><td>The <span class=product>rwt-nested-menu</span> DOM component is an expandable dropdown navigation panel, displayed in multi-column fashion, with items grouped into two levels.</td></tr>
 </table>
 
 ### Motivation
@@ -34,7 +37,7 @@
 Sometimes you need to provide your website visitors with quick access to a large
 quantity of pages without cluttering the main reading area of the page.
 
-The <span>rwt-nested-menu</span> web component does this by keeping a
+The <span>rwt-nested-menu</span> DOM component does this by keeping a
 menu collapsed at the top of the page until the user needs it.
 
 When the menu is activated, it opens up as a multi-column panel, where the
@@ -50,7 +53,7 @@ The component has these features:
       when the user selects a first-level item.
    * The menu has both a keyboard and mouse interface, with no risk of loosing focus
       when the mouse leaves the menu area.
-   * The actual menu items are kept separate from the web component, allowing the
+   * The actual menu items are kept separate from the DOM component, allowing the
       webmaster to change its contents in a single centralized place.
    * The menu item corresponding to the current document is highlighted when the
       collapsed menu is first expanded.
@@ -59,9 +62,17 @@ The component has these features:
       only one is open at a time.
    * A keyboard listener is provided to allow a shortcut key to open/close the menu.
 
+#### In the wild
+
+To see an example of this component in use, visit the <a href='https://bluephrase.com'><span class=bp>BLUE</span><span class=phrase>PHRASE</span></a>
+website. It uses this component for the SYNTAX, SEMANTAX and STYLE buttons. To
+understand what's going on under the hood, use the browser's inspector to view
+the HTML source code and network activity, and follow along as you read this
+documentation.
+
 #### Prerequisites
 
-The <span>rwt-nested-menu</span> web component works in any browser
+The <span>rwt-nested-menu</span> DOM component works in any browser
 that supports modern W3C standards. Templates are written using <span>BLUE
 </span><span>PHRASE</span> notation, which can be compiled into HTML using the free <a href='https://hub.readwritetools.com/desktop/rwview.blue'>Read Write View</a>
 desktop app. It has no other prerequisites. Distribution and installation are
@@ -86,14 +97,14 @@ on your development computer.
 npm init
 ```
 
-   * Download and install the web component using the command:
+   * Download and install the DOM component using the command:
 ```bash
 npm install rwt-nested-menu
 ```
 
 
-Important note: This web component uses Node.js and NPM and `package.json` as a
-convenient *distribution and installation* mechanism. The web component itself
+Important note: This DOM component uses Node.js and NPM and `package.json` as a
+convenient *distribution and installation* mechanism. The DOM component itself
 does not need them.
 
 #### Installation using Github
@@ -101,14 +112,14 @@ does not need them.
 If you are more comfortable using Github for installation, follow these steps:
 
    * Create a directory `node_modules` in the root of your web project.
-   * Clone the <span>rwt-nested-menu</span> web component into it using
+   * Clone the <span>rwt-nested-menu</span> DOM component into it using
       the command:
 ```bash
 git clone https://github.com/readwritetools/rwt-nested-menu.git
 ```
 
 
-### Using the web component
+### Using the DOM component
 
 After installation, you need to add two things to your HTML page to make use of
 it.
@@ -241,9 +252,22 @@ The menu can be controlled with its event interface.
 	<dd>The component listens on DOM <code>document</code> for <code>click</code> messages. When the user clicks anywhere outside the menu, it closes itself.</dd>
 </dl>
 
+---
+
+### Reference
+
+
+<table>
+	<tr><td><img src='/img/read-write-hub.png' alt='DOM components logo' width=40 /></td>	<td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/nested-menu.blue'>READ WRITE HUB</a></td></tr>
+	<tr><td><img src='/img/git.png' alt='git logo' width=40 /></td>	<td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-nested-menu'>github</a></td></tr>
+	<tr><td><img src='/img/dom-components.png' alt='DOM components logo' width=40 /></td>	<td>Component catalog</td> 	<td><a href='https://domcomponents.com/nested-menu.blue'>DOM COMPONENTS</a></td></tr>
+	<tr><td><img src='/img/npm.png' alt='npm logo' width=40 /></td>	<td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-nested-menu'>npm</a></td></tr>
+	<tr><td><img src='/img/read-write-stack.png' alt='Read Write Stack logo' width=40 /></td>	<td>Publication venue</td>	<td><a href='https://readwritestack.com/components/nested-menu.blue'>READ WRITE STACK</a></td></tr>
+</table>
+
 ### License
 
-The <span>rwt-nested-menu</span> web component is licensed under the
+The <span>rwt-nested-menu</span> DOM component is licensed under the
 MIT License.
 
 <img src='/img/blue-seal-mit.png' width=80 align=right />
@@ -255,13 +279,4 @@ MIT License.
 	<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </details>
-
-### Availability
-
-
-<table>
-	<tr><td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-nested-menu'>github</a></td></tr>
-	<tr><td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-nested-menu'>NPM</a></td></tr>
-	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/nested-menu.blue'>Read Write Hub</a></td></tr>
-</table>
 
