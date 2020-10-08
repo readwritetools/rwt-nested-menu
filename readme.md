@@ -200,6 +200,7 @@ rwt-nested-menu {
     --font-size: 0.8rem;
     --item-height: 2rem;
     --item-width: 11rem;
+    --z-index: 1;
 }
 ```
 

@@ -44,6 +44,7 @@
 	--font-size: 0.8rem;
 	--item-height: 2rem;
 	--item-width: 11rem;
+	--z-index: 1;
 }
 
 menu {
@@ -63,6 +64,7 @@ menu {
 	box-sizing: border-box;
 	border-top: 1px solid var(--accent-color2);
 	border-bottom: 1px solid var(--accent-color2);
+    z-index: var(--z-index);
 }
 menu.show-menu {
 	display: flex;
